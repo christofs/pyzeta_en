@@ -43,14 +43,14 @@ body {
   color: #000;
   font-family: "News Cycle", Impact, sans-serif;
   font-weight: normal;
-  line-height: 0.8;
+  line-height: 0.9;
   letter-spacing: normal;
   text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.4em; }
+  font-size: 2.0em; }
 
 .reveal h2 {
   font-size: 1.6em; }
@@ -69,7 +69,7 @@ body {
  *********************************************/
 .reveal p {
   margin: 20px 0;
-  font-size: 0.8em; 
+  font-size: 1.0em;
   line-height: 1.1; }
 
 /* Ensure certain elements are never larger than the slide itself */
@@ -91,6 +91,7 @@ body {
 .reveal ul {
   display: inline-block;
   text-align: left;
+  font-size: 0.9em;
   margin: 0 0 0 1em; }
 
 .reveal ol {
@@ -100,7 +101,8 @@ body {
   list-style-type: disc; }
 
 .reveal ul ul {
-  list-style-type: square; }
+  list-style-type: square;
+  font-size: 0.8em; }
 
 .reveal ul ul ul {
   list-style-type: circle; }
