@@ -143,7 +143,7 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 --
 ## Naive Baseline:<br/>ratio of relative frequencies (rrf)
 <br/>
-* **rrf<sub>i</sub> = rf<sub>i</sub>(T) / rf<sub>i</sub>(C)**
+**rrf<sub>i</sub> = rf<sub>i</sub>(T) / rf<sub>i</sub>(C)**
 <br/>
 <br/>
 * T = Target partition
@@ -185,9 +185,9 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 
 
 --
-## Empirical evaluation [REVISE]
+## Empirical evaluation
 <br/>
-<a href="img/testing-matilda_Lijffijt.png"><img height="250" src="img/testing-matilda_Lijffijt.png"></img></a>
+<a href="img/testing-matilda_Lijffijt.png"><img height="300" src="img/testing-matilda_Lijffijt.png"></img></a>
 * Lijffit et al. 2014 using BNC
 * "Matilda" in male/female authors
 * Challenge: "spiky" distribution
@@ -204,7 +204,7 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 * John Burrows 2007: proposes Zeta (follow-up to Delta) <!-- .element: class="fragment" data-fragment-index="1" -->
 * Hugh Craig 2009: slightly modified version <!-- .element: class="fragment" data-fragment-index="2" -->
 * David Hoover 2010: Excel implementation <!-- .element: class="fragment" data-fragment-index="3" -->
-* Maciej Eder 2013: R implementation (in stylo) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Maciej Eder 2013: R implementation (in stylo: 'oppose()') <!-- .element: class="fragment" data-fragment-index="4" -->
 <br/>
 <br/>
 <p>(see [references](#/8/2))</p> <!-- .element: class="fragment" data-fragment-index="5" -->
@@ -224,7 +224,7 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 --
 ## Zeta, 2: document frequencies
 <br/>
-* **df<sub>i</sub>(T) and df<sub>i</sub>(C)**
+**df<sub>i</sub>(T) and df<sub>i</sub>(C)**
 <br/>
 <br/>
 * df<sub>i</sub> = number of documents <br/>in partition that contain word i
@@ -233,8 +233,9 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 --
 ## Zeta, 3: document proportions
 <br/>
-* **dp<sub>i</sub>(T) = df<sub>i</sub>(T) / n(T)**
-* **dp<sub>i</sub>(C) = df<sub>i</sub>(C) / n(C)**
+**dp<sub>i</sub>(T) = df<sub>i</sub>(T) / n(T)**
+
+**dp<sub>i</sub>(C) = df<sub>i</sub>(C) / n(C)**
 <br/>
 <br/>
 * dp<sub>i</sub> = document proportion, i.e. proportion <br/>of documents that contain word i
@@ -244,7 +245,7 @@ Source: User:Bundesstefan <br/>https://commons.wikimedia.org/wiki/File:Apfelscho
 --
 ## Zeta, 4: subtraction
 <br/>
-* **Zeta<sub>i</sub> = dp<sub>i</sub>(T) - dp<sub>i</sub>(C)**
+**Zeta<sub>i</sub> = dp<sub>i</sub>(T) - dp<sub>i</sub>(C)**
 <br/>
 <br/>
 * Not a ratio, but simple subtraction!
