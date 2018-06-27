@@ -1,2 +1,1 @@
-# pyzeta_en
-About pyzeta.
+# zeta-dhd2018

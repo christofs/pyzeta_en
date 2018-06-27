@@ -5,8 +5,10 @@
  * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
  * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+/* @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700); */
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic); */
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -15,7 +17,7 @@ body {
   background-color: #fff; }
 
 .reveal {
-  font-family: "Lato", sans-serif;
+  font-family: Lato, Alegreya, Algreya Regular, Montserrat, Alegreya Sans, Open Sans, sans-serif; /* "Lato", sans-serif; */
   font-size: 36px;
   font-weight: normal;
   color: #000; }
@@ -41,7 +43,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #000;
-  font-family: "News Cycle", Impact, sans-serif;
+  font-family: Alegreya, Alegreya Regular, Montserrat, sans-serif; /* "News Cycle", Impact, sans-serif; */
   font-weight: normal;
   line-height: 0.9;
   letter-spacing: normal;
@@ -50,13 +52,16 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.0em; }
+  font-size: 2.0em; 
+  font-family: Alegreya, Algreya Regular;}
 
 .reveal h2 {
-  font-size: 1.6em; }
+  font-size: 1.6em; 
+  font-family: Alegreya, Algreya Regular;}
 
 .reveal h3 {
-  font-size: 1.2em; }
+  font-size: 1.2em; 
+    font-family: Alegreya, Algreya Regular;}
 
 .reveal h4 {
   font-size: 1em; }
@@ -69,6 +74,7 @@ body {
  *********************************************/
 .reveal p {
   margin: 20px 0;
+  font-family: Lato, Alegreya, Algreya Regular;
   font-size: 1.0em;
   line-height: 1.1; }
 
@@ -90,19 +96,25 @@ body {
 .reveal dl,
 .reveal ul {
   display: inline-block;
+  font-family:  Lato, Alegreya, Algreya Regular;
   text-align: left;
   font-size: 0.9em;
   margin: 0 0 0 1em; }
 
 .reveal ol {
-  list-style-type: decimal; }
+  list-style-type: decimal; 
+  font-family:  Lato, Alegreya, Algreya Regular;}
 
 .reveal ul {
-  list-style-type: disc; }
+  list-style-type: disc; 
+  font-family:  Lato, Alegreya, Algreya Regular;}
+
 
 .reveal ul ul {
   list-style-type: square;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  font-family:  Lato, Alegreya, Algreya Regular;}
+
 
 .reveal ul ul ul {
   list-style-type: circle; }
