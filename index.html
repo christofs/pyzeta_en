@@ -51,14 +51,32 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 ---
 # Overview
 <br/>
-1. [Zeta, a measure of distinctiveness](#/2)
-2. [Distinktivitätsmaße](#/3)
-3. [Zeta: Funktionsweise](#/4)
-4. [Zeta: Anwendungsbeispiel](#(5)
+1. [Introduction: Distinctiveness](#/2)
+2. [What is Zeta?](#/3)
+3. [Zeta variants and parameters](#/4)
+4. [Text collection, code and raw data](#(5)
+5. [Methods and hypotheses](#(6)
+6. [Exploratory Approaches](#(7)
+7. [Evaluation of Variants and Parameters](#(8)
+8. [Interpretability](#(9)
+9. [Conclusion and Future Work](#(10)
 
 
 ---
-# 1. Zeta, a measure of distinctiveness
+# 1. Introduction:<br/>Distinctiveness
+
+--
+## Previous Work
+<br/>
+* Building on work by: <!-- .element: class="fragment" data-fragment-index="1" --> 
+    * John Burrows (2007)
+    * Hugh Craig (2009) 
+    * David Hoover (2010)
+* From our group <!-- .element: class="fragment" data-fragment-index="2" --> 
+   * Python implementation of Zeta (github.com/cligs/pyzeta)
+   * Application of Zeta to issues of literary subgenres
+* Today: Focus on methodology / evaluation <!-- .element: class="fragment" data-fragment-index="3" --> 
+
 
 --
 ## Foundations
@@ -109,17 +127,17 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 **Zeta<sub>i</sub> = sp<sub>i</sub>(T) - sp<sub>i</sub>(C)**
 <br/>
 <br/>
-* A simple subtraction of the segment proportions <!-- .element: class="fragment" data-fragment-index="2" -->
-* Calculated for each word type, sorted by Zeta <!-- .element: class="fragment" data-fragment-index="3" -->
-* Fixed theoretical range (-1.0 through +1.0) <!-- .element: class="fragment" data-fragment-index="4" -->
+* A simple subtraction of the segment proportions <!-- .element: class="fragment" data-fragment-index="1" -->
+* Calculated for each word type, sorted by Zeta <!-- .element: class="fragment" data-fragment-index="2" -->
 
 --
 ## Some properties
 <br/>
-* Spikey features don't get high Zeta<br/>scores (names) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Very widespread features don't get<br/>high Zeta scores (function words) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Inherent bias towards mid-range<br/>frequency words (content words) <!-- .element: class="fragment" data-fragment-index="3" -->
-* No inherent cut-off point <!-- .element: class="fragment" data-fragment-index="4" -->
+* Fixed theoretical range (-1.0 through +1.0) <!-- .element: class="fragment" data-fragment-index="1" -->
+* Spikey features don't get high Zeta<br/>scores (names) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Very widespread features don't get<br/>high Zeta scores (function words) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Inherent bias towards mid-range<br/>frequency words (content words) <!-- .element: class="fragment" data-fragment-index="4" -->
+* No inherent cut-off point <!-- .element: class="fragment" data-fragment-index="5" -->
 
 --
 ## Segment proportions and Zeta
@@ -127,20 +145,43 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 
 
 ---
-# 3. Parameters and variants
+# 3. Text collection, data and code
+
+--
+## Text collection used
+<br/>
+* Today: results from a collection of Spanish novels <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Date of publication: 1880-1940 <!-- .element: class="fragment" data-fragment-index="2" -->
+* 24 novels from Spain, 24 novels from Latin America <!-- .element: class="fragment" data-fragment-index="3" -->
+* Source: CLiGS textbox, github.com/cligs/textbox<br/>(Henny 2017 and Calvo Tello 2017) <!-- .element: class="fragment" data-fragment-index="4" -->
+
+
+--
+## Code and raw data
+<br/>
+* Code: pyzeta, github.com/cligs/pyzeta <!-- .element: class="fragment" data-fragment-index="1" -->
+* Raw data: github.com/cligs/projects2018/tree/master/zeta-dh <!-- .element: class="fragment" data-fragment-index="1" -->
+
+---
+# 4. Methods and Hypotheses
+
+
+
+---
+# 5. Parameters and variants
 
 --
 ## Relevant parameters
 <br/>
-* Segment size (m words)
-* Sampling method (segments)
+* Segment size: m words <!-- .element: class="fragment" data-fragment-index="1" -->
+* (Sampling method for the segments) <!-- .element: class="fragment" data-fragment-index="2" -->
 
 --
 ## Possible variants of Zeta
 <br/>
-* use relative frequencies instead of segment proportions
-* use division instead of subtraction
-* use log-transformed values instead of untransformed values
+* use relative frequencies instead of segment proportions <!-- .element: class="fragment" data-fragment-index="1" -->
+* use division instead of subtraction <!-- .element: class="fragment" data-fragment-index="2" -->
+* use log-transformed values instead of untransformed values <!-- .element: class="fragment" data-fragment-index="3" -->
 
 --
 ## Overview of variants
@@ -151,113 +192,75 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 --
 ## Possible desired effects
 <br/>
-* avoid inherent limitation<br/>of maximal Zeta score to spi(T)
-* improve distinctiveness
-* maintain interpretability
+* avoid inherent limitation<br/>of maximal Zeta score to sp_i <!-- .element: class="fragment" data-fragment-index="1" -->
+* improve distinctiveness <!-- .element: class="fragment" data-fragment-index="2" -->
+* maintain interpretability <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
-
-
+---
+# 6. Explorative Approaches
 
 --
 ## Zeta and segment size
 <a href="img/image3.png"><img height="550" src="img/image3.png"></img></a>
 
+
+---
+# 7. Variants and Evaluation
+
+
 --
-## Segment size and Zeta variant
-<a href="img/threeway_pca.png"><img height="500" src="img/threeway_pca.png"></img></a>
+## Classification Task: Overview
+<br/>
+<img height="400" src="img/variants-scores.png"></img>
+<br/>
+<small>Classification task: linear SVM classifier using 40 most distinctive words, <br/>three-fold cross-validation; tf-idf Baseline 0.49</small>
+
+--
+## Classification task: details
+<a href="img/image1.png"><img height="500" src="img/image1.png"></img></a>
+<br/>
+<small>Zeta variants (rows) and parameters (columns)</small>
 
 
 ---
-# 5. Varianten und Evaluation
+# 8. Interpretability
 
 --
-## Varianten von Zeta
+## 
 <br/>
-* Mathematische Variation<!-- .element: class="fragment" data-fragment-index="1" -->
-    1. Statt document-proportions: relative Häufigkeiten
-    2. Statt Subtraktion der Werte: Division 
-    3. Statt unmodifizierte Werte: Logarithmus der Werte<br/><br/>
-* Motivation: Gewünschte Effekte<!-- .element: class="fragment" data-fragment-index="2" -->
-    1. Verringerter Begrenzungseffekt 
-    2. Verbesserte Distinktivität
-    3. Unverminderte Interpretierbarkeit
-
---
-## Acht Varianten
-<br/>
-<img height="400" src="img/varianten-tabelle.png"></img>
-<br/>
-<p>\*sd0 = Burrows Zeta; sd2 = log2-Zeta</p>
-
---
-## Effekt auf Distinktivitätswerte
-<br/>
-<img height="350" src="img/illustration_Zeta-vs-adjZeta_extremes3b.png"></img>
-<br/>
-<small>Théâtre classique (Tragödie): sd0 vs. sd2</small>
-
---
-## Effekt auf Distinktivitätswerte
-<br/>
-<img height="350" src="img/illustration_Zeta-vs-adjZeta_extremes3c.png"></img>
-<br/>
-<small>Théâtre classique (Tragödie): sd0 vs. sd2</small>
-
---
-## Klassifikationstask: Überblick
-<br/>
-<img height="400" src="img/varianten-ergebnisse.png"></img>
-
-<!--
-|                 |    document | proportions| relative    |Häufigkeiten|
-|-----------------|:-----------:|:----------:|:-----------:|:----------:|
-|                 |  **normal** |  **log2**  |  **normal** | **log2**   |
-| **subtraction** |     0.81    |   0.98     |   0.48      |  0.83      |
-| **division**    |     0.79    |   0.85     |   0.75      | 0.79       |
--->
-
-<br/>
-<small>Klassifikationstask: Tragödie vs. Komödie;<br/>Linearer SVM-Klassifier mit 40 top-distinktiven Merkmalen,<br/> dreifache Cross-Validation; tf-idf Baseline 0.49</small>
-
-
-
---
-## Klassifikationstask: Detail
-<img height="500" src="img/image1.png"></img>
-<br/>
-<small>(Nach Zeta-Variante und Segmentlänge)</small>
-
-
+* Better performance and robustness is nice
+* But does interpretability remain high?
+* Is there an trade-off between interpretability and performance?
 
 
 
 ---
-# 6. Fazit
+# 9. Conclusion and Future Work
 
 --
-## Ergebnisse
+## Results
 <br/>
-* Zeta: Nützliches Distinktivitätsmaß <!-- .element: class="fragment" data-fragment-index="1" -->
-    * mathematisch sehr einfach
-    * gut interpretierbare Ergebnisse
-* Zeta-Varianten  <!-- .element: class="fragment" data-fragment-index="2" -->
-    * sd2 (log2-Zeta) verschiebt die Wortliste  
-    * sd2 erhöht Klassifikationsgüte und Robustheit
+* A more precise understanding of Zeta <!-- .element: class="fragment" data-fragment-index="1" -->
+    * relation between segment proportions and Zeta
+    * relation between segment length and Zeta
+    * motivated variant of Zeta<br/><br/>
+* Zeta variants  <!-- .element: class="fragment" data-fragment-index="2" -->
+    * sd2 (log2-Zeta) increases classification performance and robustness  
+    * but we don't know about interpretability yet
 
 --
-## Nächste Schritte
+## Next steps
 <br/>
-* Einfluss der Segmentlänge (DH2018) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Interpretierbarkeit je nach Variante;<br/>Zielkonflikt Distinktivität vs. Interpretierbarkeit? <!-- .element: class="fragment" data-fragment-index="2" -->
-* Systematische Evaluation der Zeta-Varianten <br/>und etablierter keyness-Maßen (siehe Lijffijt) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Operationalize "interpretability"<!-- .element: class="fragment" data-fragment-index="2" -->
+* Systematic evaluation of Zeta and established measures of keyness using the same datasets and the same evaluation methods <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 --
-## Vielen Dank!
+## Many thanks! / ¡Muchas gracias!
 <br/>
 <br/>
-**Literaturhinweise**
+**References**
 <small>
 
 * Burrows, John F. (2007). "All the way through: testing for authorship in different frequency strata". _Literary and Linguistic Computing_, 22(1): 27-48.
@@ -278,7 +281,6 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 <br/>
 <br/>
 <br/>
-## Danke!
 <br/>
 <br/>
 <br/>
