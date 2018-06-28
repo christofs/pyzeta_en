@@ -35,55 +35,48 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
-# Burrows' Zeta
-##Exploring and Explaining Variants and Parameters
+## Burrows' Zeta
+###Exploring and Explaining Variants and Parameters
+<br/>
 <hr/>
+<br/>slides: <a href="https://christofs.github.io/pyzeta_en/">christofs.github.io/pyzeta_en/</a>
+<br/>español: <a href="https://annuel.framapad.org/p/zeta-dh2018">annuel.framapad.org/p/zeta-dh2018</a>
 <br/>
 <br/>
-Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, Andreas Hotho
-<br/>
-<br/>**DH2018, Mexico City, June 29, 2018**
 <hr/>
-<br/>
-<img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="45" data-src="img/basics/uni-trier.png"></img>
+<br/><small>Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, Andreas Hotho
+<br/>**DH2018, Mexico City, June 29, 2018**</small>
+<hr/>
+<br/><img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="45" data-src="img/basics/uni-trier.png"></img>
 
 
 ---
 # Overview
 <br/>
-1. [Introduction: Distinctiveness](#/2)
+1. [Introduction](#/2)
 2. [What is Zeta?](#/3)
-3. [Zeta variants and parameters](#/4)
-4. [Text collection, code and raw data](#(5)
+3. [Parameters and variants](#/4)
+4. [Data, code and raw results](#(5)
 5. [Methods and hypotheses](#(6)
 6. [Exploratory Approaches](#(7)
-7. [Evaluation of Variants and Parameters](#(8)
+7. [Evaluation](#(8)
 8. [Interpretability](#(9)
-9. [Conclusion and Future Work](#(10)
+9. [Conclusion](#(10)
 
 
 ---
 # 1. Introduction:<br/>Distinctiveness
 
 --
-## Previous Work
-<br/>
-* Building on work by: <!-- .element: class="fragment" data-fragment-index="1" --> 
-    * John Burrows (2007)
-    * Hugh Craig (2009) 
-    * David Hoover (2010)
-* From our group <!-- .element: class="fragment" data-fragment-index="2" --> 
-   * Python implementation of Zeta (github.com/cligs/pyzeta)
-   * Application of Zeta to issues of literary subgenres
-* Today: Focus on methodology / evaluation <!-- .element: class="fragment" data-fragment-index="3" --> 
-
-
---
 ## Foundations
 <br/>
-* Omnipresence of contrastive / comparative analysis <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Contrastive / comparative analysis is widespread <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Numerous measures of distinctiveness ("keyness") <!-- .element: class="fragment" data-fragment-index="2" -->
 * Implementations: Antconc, WordCruncher, TXM, stylo, etc. <!-- .element: class="fragment" data-fragment-index="3" -->
+* We are building on work by John Burrows (2007), Hugh Craig (2009), David Hoover (2010) <!-- .element: class="fragment" data-fragment-index="4" -->
+* So far: <!-- .element: class="fragment" data-fragment-index="5" -->
+    * a Python implementation
+    * an application to literary subgenres 
 
 --
 ## What is distinctiveness?
@@ -92,22 +85,7 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 * Calculates a score for each feature <!-- .element: class="fragment" data-fragment-index="2" --> 
 * Simple frequency is not enough (= typical) <!-- .element: class="fragment" data-fragment-index="3" --> 
 * Rather: comparatively high/low frequency (= distinctive) <!-- .element: class="fragment" data-fragment-index="4" --> 
-
---
-## Requirements for measures of distinctiveness
-<br/>
-* Balance absolute and comparative frequency (function words!) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Identify features distinctive of the entire group (names!) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Indicate a recognisable cut-off (e.g. significance test) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Permit high interpretability of results <!-- .element: class="fragment" data-fragment-index="4" -->
-
---
-## Types of measures of distinctiveness
-<br/>
-1. Expected vs. observed values<br/>(e.g. log-likelihood-ratio) <!-- .element: class="fragment" data-fragment-index="1" -->
-2. Weighted frequencies (e.g. tf-idf) <!-- .element: class="fragment" data-fragment-index="2" -->
-3. Hypothesis tests for distributions<br/>(e.g. t-Test) <!-- .element: class="fragment" data-fragment-index="3" -->
-4. Dispersion measures (e.g. Zeta) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Zeta: high interpretability of results <!-- .element: class="fragment" data-fragment-index="5" -->
 
 
 ---
@@ -116,59 +94,31 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 --
 ## Zeta: Basis
 <br/>
-* two groups of documents: <br/>target group (T), comparison group (C) <!-- .element: class="fragment" data-fragment-index="1" -->
+* two groups of documents G1 and G2 <!-- .element: class="fragment" data-fragment-index="1" -->
 * each document is split into m segments of n words <!-- .element: class="fragment" data-fragment-index="2" -->
 * sp_i = segment proportion of word type i <!-- .element: class="fragment" data-fragment-index="3" -->
-* calculated for T and C separatedly <!-- .element: class="fragment" data-fragment-index="4" -->
+* calculated for G1 and G2 separatedly <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
 ## Zeta: Calculation
 <br/>
-**Zeta<sub>i</sub> = sp<sub>i</sub>(T) - sp<sub>i</sub>(C)**
+<br/>
+**Zeta<sub>i</sub> = sp<sub>i</sub>(G1) - sp<sub>i</sub>(G2)**
 <br/>
 <br/>
 * A simple subtraction of the segment proportions <!-- .element: class="fragment" data-fragment-index="1" -->
 * Calculated for each word type, sorted by Zeta <!-- .element: class="fragment" data-fragment-index="2" -->
+* Result: list of distinctive words <!-- .element: class="fragment" data-fragment-index="3" -->
 
---
-## Some properties
-<br/>
-* Fixed theoretical range (-1.0 through +1.0) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Spikey features don't get high Zeta<br/>scores (names) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Very widespread features don't get<br/>high Zeta scores (function words) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Inherent bias towards mid-range<br/>frequency words (content words) <!-- .element: class="fragment" data-fragment-index="4" -->
-* No inherent cut-off point <!-- .element: class="fragment" data-fragment-index="5" -->
 
 --
 ## Segment proportions and Zeta
 <a href="img/fig-1_docprops-und-zetascores_mit-pointer.png"><img height="550" src="img/fig-1_docprops-und-zetascores_mit-pointer.png"></img></a>
+<br/><small>Each dot is one word; Zeta = sp(G1)-sp(G2)</small>
 
 
 ---
-# 3. Text collection, data and code
-
---
-## Text collection used
-<br/>
-* Today: results from a collection of Spanish novels <!-- .element: class="fragment" data-fragment-index="1" --> 
-* Date of publication: 1880-1940 <!-- .element: class="fragment" data-fragment-index="2" -->
-* 24 novels from Spain, 24 novels from Latin America <!-- .element: class="fragment" data-fragment-index="3" -->
-* Source: CLiGS textbox, github.com/cligs/textbox<br/>(Henny 2017 and Calvo Tello 2017) <!-- .element: class="fragment" data-fragment-index="4" -->
-
-
---
-## Code and raw data
-<br/>
-* Code: pyzeta, github.com/cligs/pyzeta <!-- .element: class="fragment" data-fragment-index="1" -->
-* Raw data: github.com/cligs/projects2018/tree/master/zeta-dh <!-- .element: class="fragment" data-fragment-index="1" -->
-
----
-# 4. Methods and Hypotheses
-
-
-
----
-# 5. Parameters and variants
+# 4. Parameters and variants
 
 --
 ## Relevant parameters
@@ -186,15 +136,48 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 --
 ## Overview of variants
 <br/>
-<a href="img/variants.png"><img height="450" src="img/variants.png"></img></a>
-
+<a href="img/variants-labels.png"><img height="450" src="img/variants-labels.png"></img></a>
+<br/>sp0 = Burrows Delta, sp2 = log2-Zeta
 
 --
 ## Possible desired effects
 <br/>
-* avoid inherent limitation<br/>of maximal Zeta score to sp_i <!-- .element: class="fragment" data-fragment-index="1" -->
-* improve distinctiveness <!-- .element: class="fragment" data-fragment-index="2" -->
-* maintain interpretability <!-- .element: class="fragment" data-fragment-index="3" -->
+* improve distinctiveness <!-- .element: class="fragment" data-fragment-index="1" -->
+* maintain interpretability <!-- .element: class="fragment" data-fragment-index="2" -->
+
+
+---
+# 5. Data, code, raw results
+
+--
+## Text collection used
+<br/>
+* Today: results from a collection of Spanish novels <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Date of publication: 1880-1940 <!-- .element: class="fragment" data-fragment-index="2" -->
+* 24 novels from Spain, 24 novels from Latin America <!-- .element: class="fragment" data-fragment-index="3" -->
+* Source: CLiGS textbox, github.com/cligs/textbox<br/>(Henny 2017 and Calvo Tello 2017) <!-- .element: class="fragment" data-fragment-index="4" -->
+
+
+--
+## Code and raw data
+<br/>
+* Code: pyzeta, github.com/cligs/pyzeta <!-- .element: class="fragment" data-fragment-index="1" -->
+* Raw data: github.com/cligs/projects2018/tree/master/zeta-dh <!-- .element: class="fragment" data-fragment-index="1" -->
+
+---
+# 5. Methods and Hypotheses
+
+--
+## Methods 
+<br/>
+* Exploratory: plot Zeta data, varying parameters and variants <!-- .element: class="fragment" data-fragment-index="1" -->
+* Performance testing: classification task with varying parameters and variants <!-- .element: class="fragment" data-fragment-index="2" -->
+
+--
+## Hypotheses
+<br/>
+* Some of the variants should perform <br/>better in the classification task <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Extreme segment lenghts should<br/>negatively impact performance <!-- .element: class="fragment" data-fragment-index="2" --> 
 
 
 ---
@@ -207,10 +190,6 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 
 --
 ## Segment proportions and variants
-<a href="img/image2a.png"><img height="550" src="img/image2a.png"></img></a>
-
---
-## Segment proportions and variants
 <a href="img/image2b.png"><img height="550" src="img/image2b.png"></img></a>
 
 
@@ -219,17 +198,12 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 
 
 --
-## Classification Task: Overview
-<br/>
-<img height="400" src="img/variants-scores.png"></img>
-<br/>
-<small>Classification task: linear SVM classifier using 40 most distinctive words, <br/>three-fold cross-validation; tf-idf Baseline 0.49</small>
-
---
-## Classification task: details
+## Classification task
 <a href="img/image1.png"><img height="500" src="img/image1.png"></img></a>
 <br/>
 <small>Zeta variants (rows) and parameters (columns)</small>
+<small>Task details: linear SVM classifier using 40 most distinctive words, <br/>three-fold cross-validation; tf-idf Baseline 0.49</small>
+
 
 
 ---
@@ -238,14 +212,13 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 --
 ## 
 <br/>
-* Better performance and robustness is nice
-* But does interpretability remain high?
-* Is there an trade-off between interpretability and performance?
-
+* Better performance and robustness is nice <!-- .element: class="fragment" data-fragment-index="1" --> 
+* But: is there a trade-off between interpretability and performance? <!-- .element: class="fragment" data-fragment-index="2" --> 
+* Operationalization of "interpretability":<br/>proportion of content words <!-- .element: class="fragment" data-fragment-index="3" --> 
 
 
 ---
-# 9. Conclusion and Future Work
+# 9. Conclusion
 
 --
 ## Results
@@ -262,12 +235,19 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 ## Next steps
 <br/>
 * Operationalize "interpretability"<!-- .element: class="fragment" data-fragment-index="2" -->
-* Systematic evaluation of Zeta and established measures of keyness using the same datasets and the same evaluation methods <!-- .element: class="fragment" data-fragment-index="3" -->
+* Systematic evaluation of Zeta and similar measures<!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 --
 ## Many thanks! / ¡Muchas gracias!
 <br/>
+**Code and Data**
+<small>
+
+* Code: https://pyzeta, github.com/cligs/pyzeta
+* Raw data: https://github.com/cligs/projects2018/tree/master/zeta-dh
+
+</small>
 <br/>
 **References**
 <small>
@@ -276,9 +256,8 @@ Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, An
 * Gries, Stephan. "Dispersions and adjusted frequencies in corpora". *International Journal of Corpus Linguistics* 13:4 (2008), 403–437. 
 * Hoover, David L. “Teasing out Authorship and Style with T-Tests and Zeta.” In _Digital Humanities Conference_. London, 2010. http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-658.html.
 * Lijffijt, Jefrey et al. “Significance Testing of Word Frequencies in Corpora.” _Digital Scholarship in the Humanities_ 31, no. 2 (2014): 374–97. doi:10.1093/llc/fqu064.
-* Oakes, Michael P. _Statistics for Corpus Linguistics_. Edinburgh: Edinburgh Univ. Press, 1998.
 * Rayson, Paul, and R. Garside. “Comparing Corpora Using Frequency Profiling.” In _Proceedings of the Workshop on Comparing Corpora_, 1–6. Hong Kong: ACM, 2000.
-* Schöch, Christof. „Zeta für die kontrastive Analyse literarischer Texte. Theorie, Implementierung, Fallstudie“, in: _Quantitative Ansätze in den Literatur- und Geisteswissenschaften_, hg. Toni Bernhard et al. Berlin: de Gruyter, 2018. https://www.degruyter.com/view/books/9783110523300/9783110523300-004/9783110523300-004.xml
+* Schöch, Christof. „Zeta für die kontrastive Analyse literarischer Texte. Theorie, Implementierung, Fallstudie“, in: _Quantitative Ansätze in den Literatur- und Geisteswissenschaften_, hg. Toni Bernhard et al. Berlin: de Gruyter, 2018.
 
 <p><br/>With special thanks to pygal and reveal.js</p>
 
