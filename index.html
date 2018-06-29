@@ -57,7 +57,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 2. [What is Zeta?](#/3)
 3. [Parameters and variants](#/4)
 4. [Data, code and raw results](#(5)
-5. [Methods and hypotheses](#(6)
+5. [Methods](#(6)
 6. [Exploratory Approaches](#(7)
 7. [Evaluation](#(8)
 8. [Interpretability](#(9)
@@ -73,8 +73,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Contrastive / comparative analysis is widespread <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Numerous measures of distinctiveness ("keyness") <!-- .element: class="fragment" data-fragment-index="2" -->
 * Implementations: Antconc, WordCruncher, TXM, stylo, etc. <!-- .element: class="fragment" data-fragment-index="3" -->
-* We are building on work by John Burrows (2007), Hugh Craig (2009), David Hoover (2010) <!-- .element: class="fragment" data-fragment-index="4" -->
-* So far: <!-- .element: class="fragment" data-fragment-index="5" -->
+* For Zeta: work by John Burrows (2007), Hugh Craig (2009), David Hoover (2010) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Our work so far: <!-- .element: class="fragment" data-fragment-index="5" -->
     * a Python implementation
     * an application to literary subgenres 
 
@@ -85,7 +85,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Calculates a score for each feature <!-- .element: class="fragment" data-fragment-index="2" --> 
 * Simple frequency is not enough (= typical) <!-- .element: class="fragment" data-fragment-index="3" --> 
 * Rather: comparatively high/low frequency (= distinctive) <!-- .element: class="fragment" data-fragment-index="4" --> 
-* Zeta: high interpretability of results <!-- .element: class="fragment" data-fragment-index="5" -->
+* Zeta:<!-- .element: class="fragment" data-fragment-index="5" -->
+    * based on the dispersion of features
+    * high interpretability of results 
 
 
 ---
@@ -137,7 +139,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Overview of variants
 <br/>
 <a href="img/variants-labels.png"><img height="450" src="img/variants-labels.png"></img></a>
-<br/>sp0 = Burrows Delta, sp2 = log2-Zeta
+<br/>sp0 = Burrows Zeta, sp2 = log2-Zeta
 
 --
 ## Possible desired effects
@@ -155,7 +157,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Today: results from a collection of Spanish novels <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Date of publication: 1880-1940 <!-- .element: class="fragment" data-fragment-index="2" -->
 * 24 novels from Spain, 24 novels from Latin America <!-- .element: class="fragment" data-fragment-index="3" -->
-* Source: CLiGS textbox, github.com/cligs/textbox<br/>(Henny 2017 and Calvo Tello 2017) <!-- .element: class="fragment" data-fragment-index="4" -->
+* Source: CLiGS textbox, github.com/cligs/textbox<br/>(Ulrike Henny-Krahmer and José and Calvo Tello) <!-- .element: class="fragment" data-fragment-index="4" -->
 
 
 --
@@ -165,20 +167,17 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Raw data: github.com/cligs/projects2018/tree/master/zeta-dh <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
-# 5. Methods and Hypotheses
+# 5. Methods
 
 --
 ## Methods 
 <br/>
-* Exploratory: plot Zeta data, varying parameters and variants <!-- .element: class="fragment" data-fragment-index="1" -->
-* Performance testing: classification task with varying parameters and variants <!-- .element: class="fragment" data-fragment-index="2" -->
-
---
-## Hypotheses
-<br/>
-* Some of the variants should perform <br/>better in the classification task <!-- .element: class="fragment" data-fragment-index="1" --> 
-* Extreme segment lenghts should<br/>negatively impact performance <!-- .element: class="fragment" data-fragment-index="2" --> 
-
+* Exploratory<!-- .element: class="fragment" data-fragment-index="1" -->
+    * plot Zeta data, varying parameters and variants
+    * aim: better understanding 
+* Performance testing<!-- .element: class="fragment" data-fragment-index="2" -->
+    * classification task with varying parameters and variants 
+    * aim: find out whether some variants perform better
 
 ---
 # 6. Explorative Approaches
@@ -210,7 +209,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # 8. Interpretability
 
 --
-## 
+## Performance vs. interpretability
 <br/>
 * Better performance and robustness is nice <!-- .element: class="fragment" data-fragment-index="1" --> 
 * But: is there a trade-off between interpretability and performance? <!-- .element: class="fragment" data-fragment-index="2" --> 
@@ -244,7 +243,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 **Code and Data**
 <small>
 
-* Code: https://pyzeta, github.com/cligs/pyzeta
+* Code: https://github.com/cligs/pyzeta
 * Raw data: https://github.com/cligs/projects2018/tree/master/zeta-dh
 
 </small>
@@ -267,7 +266,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 --
 # Annex: Word Lists
-<a href="img/wordlists.png"><img height="500" src="img/wordlists.png"></img></a>
+<a href="img/wordlists.png"><img height="550" src="img/wordlists.png"></img></a>
 
 
 --
