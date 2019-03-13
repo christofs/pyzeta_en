@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Zeta at DH2018</title>
+<title>Zeta Newcastle 2019</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -30,38 +30,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <body>
 <div class="reveal">
 <div class="slides">
-<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8" data-background-image="img/basics/dh2018.png" data-background-size="70px" data-background-position="right 10px top 10px">
+<section data-markdown="" data-separator="^\n---\n" data-separator-vertical="^\n--\n" data-charset="utf-8" data-background-image="img/basics/uni-trier_icon.png" data-background-size="70px" data-background-position="right 10px top 10px">
 <script type="text/template">
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
-## Burrows' Zeta
-###Exploring and Explaining Variants and Parameters
-<br/>
-<hr/>
-<br/>slides: <a href="https://christofs.github.io/pyzeta_en/">christofs.github.io/pyzeta_en/</a>
-<br/>español: <a href="https://annuel.framapad.org/p/zeta-dh2018">annuel.framapad.org/p/zeta-dh2018</a>
+## Burrows' Zeta for Contrastive Analyses into the Popular French Novel
 <br/>
 <br/>
 <hr/>
-<br/><small>Christof Schöch, Daniel Schlör, Albin Zehe, Henning Gebhard, Martin Becker, Andreas Hotho
-<br/>**DH2018, Mexico City, June 29, 2018**</small>
+<br/>Christof Schöch (Univ. of Trier)<br/>   with Daniel Schlör, Albin Zehe, Henning Gebhard, Andreas Hotho
+<br/>
+<br/>Newcastle University, Newcastle NSW, March 2019
 <hr/>
-<br/><img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="45" data-src="img/basics/uni-trier.png"></img>
+<br/><img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png"></img>
 
 
 ---
 # Overview
 <br/>
-1. [Introduction](#/2)
-2. [What is Zeta?](#/3)
-3. [Parameters and variants](#/4)
-4. [Data, code and raw results](#(5)
-5. [Methods](#(6)
-6. [Exploratory Approaches](#(7)
-7. [Evaluation](#(8)
-8. [Interpretability](#(9)
-9. [Conclusion](#(10)
+1. [Introduction: Distinctiveness](#/2)
+2. [Understanding Zeta](#/3)
+3. [Variants and Evaluation](#(4)
+4. [Application: French Novel](#(5)
+5. [Conclusion](#(7)
 
 
 ---
@@ -73,10 +65,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Contrastive / comparative analysis is widespread <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Numerous measures of distinctiveness ("keyness") <!-- .element: class="fragment" data-fragment-index="2" -->
 * Implementations: Antconc, WordCruncher, TXM, stylo, etc. <!-- .element: class="fragment" data-fragment-index="3" -->
-* For Zeta: work by John Burrows (2007), Hugh Craig (2009), David Hoover (2010) <!-- .element: class="fragment" data-fragment-index="4" -->
-* Our work so far: <!-- .element: class="fragment" data-fragment-index="5" -->
-    * a Python implementation
-    * an application to literary subgenres 
 
 --
 ## What is distinctiveness?
@@ -85,21 +73,40 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Calculates a score for each feature <!-- .element: class="fragment" data-fragment-index="2" --> 
 * Simple frequency is not enough (= typical) <!-- .element: class="fragment" data-fragment-index="3" --> 
 * Rather: comparatively high/low frequency (= distinctive) <!-- .element: class="fragment" data-fragment-index="4" --> 
-* Zeta:<!-- .element: class="fragment" data-fragment-index="5" -->
-    * based on the dispersion of features
-    * high interpretability of results 
-
-
----
-# 2. What is Zeta?
 
 --
-## Zeta: Basis
+## "Apfelschorle"
+<img height="350" data-src="img/apfelschorle2.jpg"></img>
+
+---
+# 2. Understanding Zeta
+
+--
+## Zeta
+<br/>
+* A measure of distinctiveness developed in digital literary studies<!-- .element: class="fragment" data-fragment-index="1" -->
+* Based on the dispersion of features (rather than frequency)<!-- .element: class="fragment" data-fragment-index="2" -->
+* Bias towards medium-frequency content words: high interpretability of results <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+--
+## Previous work 
+<br/>
+* Proposed by John Burrows (2007) in the context of authorship attribution <!-- .element: class="fragment" data-fragment-index="1" -->
+* Studies by Hugh Craig (2009), David Hoover (2010), Rizvi (2018) <!-- .element: class="fragment" data-fragment-index="2" -->
+* Our work so far: <!-- .element: class="fragment" data-fragment-index="3" -->
+    * a Python implementation (pyzeta)
+    * an application to literary subgenres (Schöch 2018)
+    * an evaluation study (Schöch et al. 2018)
+
+--
+## Zeta: Basics
 <br/>
 * two groups of documents G1 and G2 <!-- .element: class="fragment" data-fragment-index="1" -->
 * each document is split into m segments of n words <!-- .element: class="fragment" data-fragment-index="2" -->
 * sp_i = segment proportion of word type i <!-- .element: class="fragment" data-fragment-index="3" -->
-* calculated for G1 and G2 separatedly <!-- .element: class="fragment" data-fragment-index="4" -->
+* segment proportion: the proportion of segments in one group that contain at least one instance of the word type <!-- .element: class="fragment" data-fragment-index="4" -->
+* calculated for G1 and G2 separatedly <!-- .element: class="fragment" data-fragment-index="5" -->
 
 --
 ## Zeta: Calculation
@@ -119,8 +126,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <br/><small>Each dot is one word; Zeta = sp(G1)-sp(G2)</small>
 
 
+--
+## Tragedies vs comedies: marker words
+<a href="img/zetascores_comedie-tragedie_30-lemmata.png"><img height="550" src="img/zetascores_comedie-tragedie_30-lemmata.png"></img></a>
+
+
+--
+## Tragedies and comedies
+<a href="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.svg"><img height="550" src="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.png"></img></a>
+
+
 ---
-# 4. Parameters and variants
+# 3. Variants and evaluation
 
 --
 ## Relevant parameters
@@ -148,9 +165,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * maintain interpretability <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
----
-# 5. Data, code, raw results
-
 --
 ## Text collection used
 <br/>
@@ -158,16 +172,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Date of publication: 1880-1940 <!-- .element: class="fragment" data-fragment-index="2" -->
 * 24 novels from Spain, 24 novels from Latin America <!-- .element: class="fragment" data-fragment-index="3" -->
 * Source: CLiGS textbox, github.com/cligs/textbox<br/>(Ulrike Henny-Krahmer and José Calvo Tello) <!-- .element: class="fragment" data-fragment-index="4" -->
-
-
---
-## Code and raw data
-<br/>
-* Code: pyzeta, github.com/cligs/pyzeta <!-- .element: class="fragment" data-fragment-index="1" -->
-* Raw data: github.com/cligs/projects2018/tree/master/zeta-dh <!-- .element: class="fragment" data-fragment-index="1" -->
-
----
-# 5. Methods
 
 --
 ## Methods 
@@ -179,74 +183,132 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     * classification task with varying parameters and variants 
     * aim: find out whether some variants perform better
 
----
-# 6. Explorative Approaches
-
 --
-## Zeta and segment size
+## Exploratory: Zeta and segment size
 <a href="img/image3.png"><img height="550" src="img/image3.png"></img></a>
 
 
 --
-## Segment proportions and variants
+## Exploratory: Segment proportions and variants
 <a href="img/image2b.png"><img height="550" src="img/image2b.png"></img></a>
 
 
----
-# 7. Variants and Evaluation
-
-
 --
-## Classification task
+## Performance: Classification task
 <a href="img/image1.png"><img height="500" src="img/image1.png"></img></a>
 <br/>
 <small>Zeta variants (rows) and parameters (columns)</small>
 <small>Task details: linear SVM classifier using 40 most distinctive words, <br/>three-fold cross-validation; tf-idf Baseline 0.49</small>
 
 
-
 ---
-# 8. Interpretability
+# 4. Application: French Contemporary Novel
+
 
 --
-## Performance vs. interpretability
+## Data
 <br/>
-* Better performance and robustness is nice <!-- .element: class="fragment" data-fragment-index="1" --> 
-* But: is there a trade-off between interpretability and performance? <!-- .element: class="fragment" data-fragment-index="2" --> 
-* Operationalization of "interpretability":<br/>proportion of content words <!-- .element: class="fragment" data-fragment-index="3" --> 
+* Corpus of French Contemporary Novel, 1950-2010 (in progress): currently 800 novels; target: ca. 3000 novels
+* Today: preliminary results from a collection of 180 novels
+
+--
+## Overview of the corpus
+<a href="img/roman20.jpg"><img height="550" src="img/roman20.jpg"></img></a>
+
+--
+## Research questions
+<br/>
+* What are words characteristic of low-brow novels (populaire) when compared to high-brow novels (blanche)? <!-- .element: class="fragment" data-fragment-index="1" -->
+* What are words characteristic of crime fiction (policier) when compared to non-crime fiction (sentimental)? <!-- .element: class="fragment" data-fragment-index="2" -->
+* What are words characteristic of "série noire" novels when compared to other crime fiction? <!-- .element: class="fragment" data-fragment-index="3" -->
+
+--
+## blanche vs. populaire
+<a href="img/zetabarchart_3000-lemmata-NOM_type_blanche-populaire_16-sd0.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_type_blanche-populaire_16-sd0.svg"></img></a>
+
+--
+## sentimental vs. non-sentimental
+<a href="img/zetabarchart_3000-lemmata-NOM_sentimental_no-yes_16-sd0.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_sentimental_no-yes_16-sd0.svg"></img></a>
+
+
+--
+## policier vs. sentimental (coll. or)
+<a href="img/zetabarchart_3000-lemmata-NOM_collection_collection-or-serie-noire_16-sd0.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_collection_collection-or-serie-noire_16-sd0.svg"></img></a>
+
+
+--
+## policier vs. sentimental (passion rouge, sd0)
+<a href="img/zetabarchart_3000-lemmata-NOM_collection_rouge-passion-serie-noire_16-sd0.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_collection_rouge-passion-serie-noire_16-sd0.svg"></img></a>
+
+--
+## policier vs. sentimental (passion rouge, sd2)
+<a href="img/zetabarchart_3000-lemmata-NOM_collection_rouge-passion-serie-noire_16-sd2.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_collection_rouge-passion-serie-noire_16-sd2.svg"></img></a>
+
+
+--
+## série noire vs. other novels (sd2)
+<a href="img/zetabarchart_3000-lemmata-NOM_serie-noire_no-yes_16-sd2.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_serie-noire_no-yes_16-sd2.svg"></img></a>
+
+--
+## série noire vs. other novels (sd0)
+<a href="img/zetabarchart_3000-lemmata-NOM_serie-noire_no-yes_16-sd0.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_serie-noire_no-yes_16-sd0.svg"></img></a>
+
+--
+## série noire vs. autres policiers
+<a href="img/zetabarchart_3000-lemmata-NOM_collection_romans-d-aventure-serie-noire_16-sd2.svg"><img height="550" src="img/zetabarchart_3000-lemmata-NOM_collection_romans-d-aventure-serie-noire_16-sd2.svg"></img></a>
+
+--
+## Alternative: Topic Modeling
+
+--
+## Subgenres
+<a href="img/heatmap_subgenre.png"><img height="550" src="img/heatmap_subgenre.png"></img></a>
+
+--
+## Collections: Topics
+<br/>
+
+|topic 30|topic 4|topic 2|
+|:--------:|:-------:|:-------:|
+| main œil tête coup bras pied foi jambe fois air visage homme corps sang bouche chose moment voix temps épaule | police affaire inspecteur commissaire mort policier homme enquête bureau femme crime question heure nom chose victime meurtre coup ami personne | main bras œil femme corps lèvre amour désir visage baiser tête cœur cheveu lit nuit bouche doigt épaule joue peau sein |
+
+--
+## Collections
+<a href="img/heatmap_collection.png"><img height="550" src="img/heatmap_collection.png"></img></a>
+
+--
+## Collections: Topics
+<br/>
+
+|topic 9|topic 39|topic 2|
+|:--------:|:-------:|:-------:|
+| dollar argent type legs coup billet œil air tête foi chose fois banque fille affaire gars besoin flic boulot shérif | père enfant mère fille frère parent famille parents maison maman fil garçon fils sœur femme vie année papa grand-mère école | main bras œil femme corps lèvre amour désir visage baiser tête cœur cheveu lit nuit bouche doigt épaule joue peau sein |
 
 
 ---
-# 9. Conclusion
+# 5. Conclusion
 
 --
-## Results
+## Results: Variants and evaluation
 <br/>
 * A more precise understanding of Zeta <!-- .element: class="fragment" data-fragment-index="1" -->
-    * relation between segment proportions and Zeta
-    * relation between segment length and Zeta
-    * motivated variant of Zeta<br/><br/>
-* Zeta variants  <!-- .element: class="fragment" data-fragment-index="2" -->
-    * sd2 (log2-Zeta) increases classification performance and robustness  
-    * but we don't know about interpretability yet
+* relation between segment proportions and Zeta (glass ceiling effect) <!-- .element: class="fragment" data-fragment-index="2" -->
+* relation between segment length and Zeta: longer segments => more words with higher Zeta scores) <!-- .element: class="fragment" data-fragment-index="3" -->
+* a motivated variant of Zeta: log2-Zeta (better performance and robustness) <!-- .element: class="fragment" data-fragment-index="4" -->
+
+--
+## Results: Application
+* Zeta variants  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 --
 ## Next steps
 <br/>
-* Operationalize "interpretability"<!-- .element: class="fragment" data-fragment-index="2" -->
-* Systematic evaluation of Zeta and similar measures<!-- .element: class="fragment" data-fragment-index="3" -->
+* Tackle the issue of "interpretability": what is it, how can we operationalize it? Is there a trade-off?<!-- .element: class="fragment" data-fragment-index="1" -->
+* Systematic evaluation of Zeta and (around a dozen) similar measures<!-- .element: class="fragment" data-fragment-index="2" -->
 
 
 --
-## Many thanks! / ¡Muchas gracias!
-<br/>
-**Code and Data**
-<small>
-
-* Code: https://github.com/cligs/pyzeta
-* Raw data: https://github.com/cligs/projects2018/tree/master/zeta-dh
-
-</small>
+## Many thanks!
 <br/>
 **References**
 <small>
@@ -265,21 +327,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
 --
-# Annex: Word Lists
-<a href="img/wordlists.png"><img height="550" src="img/wordlists.png"></img></a>
-
-
---
 <br/>
+##Thank you!
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+<br/>Slides: <a href="https://christofs.github.io/pyzeta_en/">christofs.github.io/pyzeta_en/</a>
+<br/>Code: http://github.com/cligs/pyzeta<br/>
+<br/>Data: http://github.com/cligs/projects2018/tree/master/zeta-dh<br/>
 <br/>
 <hr/>
-<p>Christof Schöch, 2018</p>
+<p>Christof Schöch, 2019</p>
 <p><a href="https://christofs.github.io/">christofs.github.io</a></p>
 <p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
 <hr/>

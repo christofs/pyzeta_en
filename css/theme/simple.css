@@ -43,7 +43,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #000;
-  font-family: Alegreya, Alegreya Regular, Montserrat, sans-serif; /* "News Cycle", Impact, sans-serif; */
+  font-family: Alegreya Sans, Alegreya Regular, Montserrat, sans-serif; /* "News Cycle", Impact, sans-serif; */
   font-weight: normal;
   line-height: 0.9;
   letter-spacing: normal;
@@ -53,15 +53,15 @@ body {
 
 .reveal h1 {
   font-size: 2.0em; 
-  font-family: Alegreya, Algreya Regular;}
+  font-family: Alegreya Sans, Algreya Regular;}
 
 .reveal h2 {
   font-size: 1.6em; 
-  font-family: Alegreya, Algreya Regular;}
+  font-family: Alegreya Sans, Algreya Regular;}
 
 .reveal h3 {
   font-size: 1.2em; 
-    font-family: Alegreya, Algreya Regular;}
+    font-family: Alegreya Sans, Algreya Regular;}
 
 .reveal h4 {
   font-size: 1em; }
