@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Zeta Newcastle 2019</title>
+<title>Distinctiveness</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -35,58 +35,118 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- THIS IS WHERE THE CONTENT GOES! -->
 <!-- Any section element inside of this container is displayed as a slide -->
-## Burrows' Zeta for Contrastive Analyses into the Popular French Novel
-<br/>
+
+## Comparison of Text Groups using Measures of Distinctiveness
 <br/>
 <hr/>
-<br/>Christof Schöch (Univ. of Trier)<br/>   with Daniel Schlör, Albin Zehe, Henning Gebhard, Andreas Hotho
+<br/>Christof Schöch (Univ. of Trier)<br/>with Daniel Schlör, Albin Zehe, Henning Gebhard, Andreas Hotho, Cora Rok, Keli Du, Julia Dudar, Julian Schröter. 
 <br/>
-<br/>Newcastle University, Newcastle NSW, March 2019
+<br/>Neo-Latin Studies and Digital Humanities | Bonn, April 14-16, 2021
 <hr/>
-<br/><img height="50" data-src="img/basics/daad.png"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png"></img>
+<br/><img height="50" data-src="img/basics/uni-trier.png"></img>
 
 
 ---
+<br/>
+
 # Overview
 <br/>
-1. [Introduction: Distinctiveness](#/2)
+1. [Introduction: What is distinctiveness?](#/2)
 2. [Understanding Zeta](#/3)
 3. [Variants and Evaluation](#(4)
-4. [Application: French Novel](#(5)
+4. [Application: French Novel](#(5)s
 5. [Conclusion](#(7)
 
 
 ---
-# 1. Introduction:<br/>Distinctiveness
+<br/>
+
+# 1. Introduction:<br/>What is Distinctiveness?
 
 --
 ## Foundations
 <br/>
 * Contrastive / comparative analysis is widespread <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Numerous measures of distinctiveness ("keyness") <!-- .element: class="fragment" data-fragment-index="2" -->
-* Implementations: Antconc, WordCruncher, TXM, stylo, Intelligent Archive, etc. <!-- .element: class="fragment" data-fragment-index="3" -->
+* Many tools have implementations <!-- .element: class="fragment" data-fragment-index="3" -->
+  * Antconc
+  * WordCruncher
+  * TXM
+  * stylo
+  * Intelligent Archive
+  * etc.
+  
+  
 
 --
-## What is distinctiveness?
+## An intuition for distinctiveness
+<img height="500" data-src="img/europe.png"></img>
+
+--
+## An intuition for distinctiveness
+<img height="350" data-src="img/apfelschorle2.jpg"></img>
+<br/><br/>
+German "Apfelschorle"
+
+
+
+--
+## What is distinctiveness (conceptually)?
+<br/>
+Some properties of distinctive features
+* they are typical for a group <!-- .element: class="fragment" data-fragment-index="1" --> 
+* characteristic of a group <!-- .element: class="fragment" data-fragment-index="2" --> 
+* express aboutness <!-- .element: class="fragment" data-fragment-index="3" --> 
+* have discriminatory power <!-- .element: class="fragment" data-fragment-index="4" --> 
+* would be salient or surprising in the opposite group <!-- .element: class="fragment" data-fragment-index="5" --> 
+
+
+--
+## Log-likelihood in Antconc
+<img height="500" data-src="img/loglikelihood.png"></img>
+
+
+--
+## What is distinctiveness (statistically)?
 <br/>
 * Relies on the comparison of two groups <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Calculates a score for each feature <!-- .element: class="fragment" data-fragment-index="2" --> 
 * Simple frequency is not enough (= typical) <!-- .element: class="fragment" data-fragment-index="3" --> 
 * Rather: comparatively high/low frequency (= distinctive) <!-- .element: class="fragment" data-fragment-index="4" --> 
+* Not: entirely mutually exclusive (= purely discriminant) <!-- .element: class="fragment" data-fragment-index="5" --> 
+* And: not just frequency, but also distribution / dispersion <!-- .element: class="fragment" data-fragment-index="6" --> 
+
+
 
 --
-## "Apfelschorle"
-<img height="350" data-src="img/apfelschorle2.jpg"></img>
+## Four types of measures
+<br/>
+* Based on frequency (e.g. log-likelihood ratio)
+* Based on distribution (e.g. t-Test)
+* Based on dispersion (e.g. Zeta)
+* Based on Machine Learning (e.g. weights from linear SVM)
+<br/>
+<br/>
+<br/>
+<br/>
+* Recommended readings <!-- .element: class="fragment" data-fragment-index="1" -->
+  * Lijffijt et al., "Significance testing of word frequencies in corpora", 2014
+  * Gries, "A new approach to (key) keywords analysis", 2021
+
 
 ---
+<br/>
+
 # 2. Understanding Zeta
+
 
 --
 ## Zeta
 <br/>
-* A measure of distinctiveness developed in digital literary studies<!-- .element: class="fragment" data-fragment-index="1" -->
-* Based on the dispersion of features (rather than frequency)<!-- .element: class="fragment" data-fragment-index="2" -->
+* A measure of distinctiveness developed in Computational Literary Studies<!-- .element: class="fragment" data-fragment-index="1" -->
+* Based on the dispersion of features (rather than pure frequency)<!-- .element: class="fragment" data-fragment-index="2" -->
 * Bias towards medium-frequency content words: high interpretability of results <!-- .element: class="fragment" data-fragment-index="3" -->
+* Ignored by virtually all relevant work in CL ;-) <!-- .element: class="fragment" data-fragment-index="4" -->
 
 
 --
@@ -95,9 +155,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Proposed by John Burrows (2007) in the context of authorship attribution <!-- .element: class="fragment" data-fragment-index="1" -->
 * Studies by Hugh Craig (2009), David Hoover (2010), Rizvi (2018) <!-- .element: class="fragment" data-fragment-index="2" -->
 * Our work so far: <!-- .element: class="fragment" data-fragment-index="3" -->
-    * a Python implementation (pyzeta)
-    * an application to literary subgenres (Schöch 2018)
-    * an evaluation study (Schöch et al. 2018)
+  * a Python implementation (pyzeta)
+  * an application to literary subgenres (Schöch 2018)
+  * an evaluation study (Schöch et al. 2018)
+* Currently: "Zeta and Company" <!-- .element: class="fragment" data-fragment-index="4" -->
+
+
+--
+## Zeta and Company
+<br/>
+* Zeta and Company: Measures of Distinctiveness for Computational Literary Studies (2020-2023); see: https://zeta-project.eu
+* Project team: Julia Dudar (CL), Cora Rok (LS), Keli Du (CLS). 
+* Part of the DFG Priority Programme Computational Literary Studies (SPP 2207); see: https://dfg-spp-cls.github.io/ 
+* Key objective: Model, implement, evaluate, and use of various measures of ‘keyness’ or ‘distinctiveness’ 
+* Further characteristics
+  * Focus on comparison of text corpora on the lexical level
+  * Building bridges between IR, CL and CLS communities
+
 
 --
 ## Zeta: Basics
@@ -120,23 +194,35 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Result: list of distinctive words <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
+
+--
+## Illustration: Tragedies vs comedies
+<a href="img/zetascores_comedie-tragedie_30-lemmata.png"><img height="550" src="img/zetascores_comedie-tragedie_30-lemmata.png"></img></a>
+<br/><small>Comedy and tragedy words</small>
+
+
+--
+## Proportions of Zeta words
+<a href="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.svg"><img height="550" src="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.png"></img></a>
+<br/><small>Each dot is one play</small>
+
+
+--
+## PCA on Zeta: Tragedy, comedy, tragicomedy 
+<a href="img/threeway_pcapng"><img height="550" src="img/threeway_pca.png"></img></a>
+<br/><small>Each dot is one play</small>
+
+
 --
 ## Segment proportions and Zeta
 <a href="img/typescatter_subgenre-tragedie-comedie_3000-lemmata-all-2000-0.3.svg"><img height="550" src="img/typescatter_subgenre-tragedie-comedie_3000-lemmata-all-2000-0.3.png"></img></a>
-<br/><small>Each dot is one word; Zeta = sp(G1)-sp(G2)</small>
+<br/><small>Each dot is one word</small>
 
-
---
-## Tragedies vs comedies: marker words
-<a href="img/zetascores_comedie-tragedie_30-lemmata.png"><img height="550" src="img/zetascores_comedie-tragedie_30-lemmata.png"></img></a>
-
-
---
-## Tragedies and comedies
-<a href="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.svg"><img height="550" src="img/worksbyzeta_subgenre-tragedie-comedie_3000-lemmata-all_100.png"></img></a>
 
 
 ---
+<br/>
+
 # 3. Variants and evaluation
 
 --
@@ -198,7 +284,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
 ---
-# 4. Application: French Contemporary Novel
+<br/>
+
+#4. Application: French Contemporary Novel
 
 
 --
@@ -282,22 +370,63 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
 ---
-# 5. Conclusion
+<br/>
+
+#5. Current Work
+
 
 --
-## Results: Variants and evaluation
+### A new benchmark corpus
+<img height="300" src="img/roman20.png"></img>
+
+* Contemporary French Novel (1950-2000)
+* sentimental, crime, science-fiction, "blanche"
+* Currently around 400 / 1200 novels
+* To be published in "derived formats"
+
+
+--
+### Exploration of dispersion
+* Comparison of dispersion-based measures
+* Basis: Zeta (subtraction of document proportions)
+* Alternative: 'DPD' (Deviation of proportions distinctiveness; Gries 2008)
+  * Gries' DP: a measure of dispersion
+  * subtraction of DP scores from each other
+
+--
+### Results of the comparison (statistically)
+<img height="400" src="img/dpd-zeta-corr1.png"></img><img height="400" src="img/dpd-zeta-corr2.png"></img>
 <br/>
-* A more precise understanding of Zeta <!-- .element: class="fragment" data-fragment-index="1" -->
+
+* With segmentation (5000 words, left) or with entire novels (right)
+
+--
+### Results of the comparison (word-lists)
+<img height="520" src="img/dpd-zeta-comparison.png"></img>
+<br/>
+
+* science-fiction vs. rest 
+
+
+
+---
+<br/>
+
+#Conclusion
+
+--
+## Results: Measures
+<br/>
+* We have gained a more precise understanding of Zeta <!-- .element: class="fragment" data-fragment-index="1" -->
 * relation between segment proportions and Zeta (glass ceiling effect) <!-- .element: class="fragment" data-fragment-index="2" -->
-* relation between segment length and Zeta: longer segments => more words with higher Zeta scores) <!-- .element: class="fragment" data-fragment-index="3" -->
 * a motivated variant of Zeta: log2-Zeta (better performance and robustness) <!-- .element: class="fragment" data-fragment-index="4" -->
+* a new dispersion-based measure: DPD <!-- .element: class="fragment" data-fragment-index="4" -->
 
 --
 ## Results: Application
 <br/>
-* Useful exploratory method  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Subtle differences between variants <!-- .element: class="fragment" data-fragment-index="2" -->
-* Focus of Zeta wordlists vs. Topics <!-- .element: class="fragment" data-fragment-index="2" -->
+* New insights into relationship tragedy / comedy / tragicomedy  <!-- .element: class="fragment" data-fragment-index="1" -->
+* Subtle differences between variants, with dependence on segment length <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
 --
@@ -308,17 +437,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
 --
-## Many thanks!
-<br/>
-**References**
+## Many thanks! | References
 <small>
 
 * Burrows, John F. (2007). "All the way through: testing for authorship in different frequency strata". _Literary and Linguistic Computing_, 22(1): 27-48.
-* Gries, Stephan. "Dispersions and adjusted frequencies in corpora". *International Journal of Corpus Linguistics* 13:4 (2008), 403–437. 
+* Egbert, J., and Biber, D. (2019). “Incorporating text dispersion into keyword analysis”. Corpora, 14(1), 77-104.
+* Gries, Stefan, ‘A New Approach to (Key) Keywords Analysis: Using Frequency, and Now Also Dispersion’, Research in Corpus Linguistics, 9 (2021), 1–33 <https://doi.org/10.32714/ricl.09.02.02>
 * Hoover, David L. “Teasing out Authorship and Style with T-Tests and Zeta.” In _Digital Humanities Conference_. London, 2010. http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-658.html.
 * Lijffijt, Jefrey et al. “Significance Testing of Word Frequencies in Corpora.” _Digital Scholarship in the Humanities_ 31, no. 2 (2014): 374–97. doi:10.1093/llc/fqu064.
+* Paquot, M., and Bestgen, Y. (2009). “Distinctive words in academic writing: A comparison of three statistical tests for keyword extraction”. In Corpora: Pragmatics and discourse. Brill Rodopi, 247-269.
 * Rayson, Paul, and R. Garside. “Comparing Corpora Using Frequency Profiling.” In _Proceedings of the Workshop on Comparing Corpora_, 1–6. Hong Kong: ACM, 2000.
 * Schöch, Christof. „Zeta für die kontrastive Analyse literarischer Texte. Theorie, Implementierung, Fallstudie“, in: _Quantitative Ansätze in den Literatur- und Geisteswissenschaften_, hg. Toni Bernhard et al. Berlin: de Gruyter, 2018.
+* Schöch, C., Schlör, D., Zehe, A., Gebhard, H., Becker, M. & Hotho, A. (2018). “Burrows’ Zeta: Exploring and Evaluating Variants and Parameters”. Digital Humanities Conference: Book of Abstracts: 274-277.
 
 <p><br/>With special thanks to pygal and reveal.js</p>
 
@@ -328,15 +458,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 --
 <br/>
+<br/>
 ##Thank you!
+<br/>
 <br/>
 <br/>Slides: <a href="https://christofs.github.io/pyzeta_en/">christofs.github.io/pyzeta_en/</a>
 <br/>Code: http://github.com/cligs/pyzeta<br/>
-<br/>Data: http://github.com/cligs/projects2018/tree/master/zeta-dh<br/>
+<br/>
 <br/>
 <hr/>
-<p>Christof Schöch, 2019</p>
-<p><a href="https://christofs.github.io/">christofs.github.io</a></p>
+<p>Christof Schöch, 2019-2021</p>
 <p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a><br/></p>
 <hr/>
 <br/>
@@ -358,7 +489,7 @@ Reveal.initialize({
     progress: true,
     slideNumber: true,
     history: true,
-    center: true,
+    center: false,
     transition: 'slide', // none/fade/slide/convex/concave/zoom
     // Optional reveal.js plugins
     dependencies: [
